@@ -1,10 +1,18 @@
 package com.example.community.user.service.data;
 
-public class NewUserInfo {
+import com.example.community.user.Grade;
+import com.example.community.user.Role;
 
-    /*
-    * 공통
-    * email, 닉네임, 소셜 프로필 이미지,
-    *
-    * */
+public class NewUserInfo {
+    private String email;
+    private String nickname;
+    private String snsProfileImageUrl;
+
+    private Grade grade;
+    private String school;
+    private String major;
+
+    private Role role;
+    private String userField;
+    private String duty;
 }

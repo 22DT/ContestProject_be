@@ -24,19 +24,17 @@ public class User {
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name="user_id")
     private Long id;
-
     private String nickname;
-    private String profileImage;
+    private String snsProfileImageUrl;
     private String email;
-    private String password;
 
     private String school; // (수정)타입
-    private String department; // (수정)타입
+    private String major; // (수정)타입
     @Enumerated(STRING)
     private Grade grade;
 
-    private String userFields;  // 관심 분야?
-    private String jobRole;  // (추가)역할
+    private String userField;  // 관심 분야?
+    private String duty;  // (추가)역할
 
     private Double rating;
     private boolean isRatingPublic;  // (추가)
@@ -46,25 +44,30 @@ public class User {
 
     private String teamMemberCode;  // (추가) 팀원 코드
 
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private boolean isDeleted; // (추가) 탈퇴 유무
 
     private boolean popularPostNotification;  // (추가) 인기글
     private boolean commentOnPostNotification;  // (추가) 댓글
     private boolean replyOnCommentNotification;   // (추가) 대댓글
 
+    private int warningCount;
+    private SuspensionStatus suspensionStatus;
+    private LocalDateTime suspensionEndTime;
+
 
     public UserDomain toDomain(){
         return UserDomain.builder()
                 .id(id)
                 .nickname(nickname)
-                .profileImage(profileImage)
+                .profileImage(snsProfileImageUrl)
                 .email(email)
                 .school(school)
-                .department(department)
+                .department(major)
                 .grade(grade)
-                .userFields(userFields)
-                .jobRole(jobRole)
+                .userFields(userField)
+                .jobRole(duty)
                 .rating(rating)
                 .teamMemberCode(teamMemberCode)
                 .build();
@@ -74,7 +77,7 @@ public class User {
         return User.builder()
                 .id(domain.getId())
                 .nickname(domain.getNickname())
-                .profileImage(domain.getProfileImage())
+                .snsProfileImageUrl(domain.getProfileImage())
                 .build();
     }
 
@@ -82,7 +85,7 @@ public class User {
     public void withdraw(){
         nickname="(알수없음)";
         email=null;
-        profileImage=null;
+        snsProfileImageUrl =null;
         /*
         * 다른 것도?
         * */
@@ -90,11 +93,11 @@ public class User {
 
     public void update(UserInfo userInfo){
         nickname=userInfo.getNickname();
-        profileImage=userInfo.getProfileImage();
-        department=userInfo.getDepartment();
+        snsProfileImageUrl =userInfo.getProfileImage();
+        major =userInfo.getDepartment();
         grade=userInfo.getGrade();
-        userFields=userInfo.getField();
-        jobRole=userInfo.getJobRole();
+        userField =userInfo.getField();
+        duty =userInfo.getJobRole();
     }
 
 }
