@@ -1,16 +1,14 @@
 package com.example.community.post.api;
 
-import com.example.community.comment.service.date.CommentActivityDomain;
-import com.example.community.file.service.data.FileDomain;
+import com.example.common.file.service.data.FileDomain;
 import com.example.community.post.dto.request.FileRequest;
 import com.example.community.post.dto.request.PostRequest;
 import com.example.community.post.dto.response.PostPreviewResponse;
 import com.example.community.post.dto.response.PostResponse;
 import com.example.community.post.service.PostService;
-import com.example.community.post.service.data.PostActivityDomain;
 import com.example.community.post.service.data.PostDomain;
 import com.example.community.post.service.data.PostSortType;
-import com.example.community.user.service.data.UserDomain;
+import com.example.common.user.service.data.UserDomain;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

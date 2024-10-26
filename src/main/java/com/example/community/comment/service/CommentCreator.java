@@ -3,7 +3,7 @@ package com.example.community.comment.service;
 import com.example.community.comment.service.date.CommentInfo;
 import com.example.community.post.service.data.PostDomain;
 import com.example.community.post.service.PostUpdater;
-import com.example.community.user.service.data.UserDomain;
+import com.example.common.user.service.data.UserDomain;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

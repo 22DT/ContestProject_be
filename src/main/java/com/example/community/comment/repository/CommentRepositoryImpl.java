@@ -7,11 +7,9 @@ import com.example.community.global.exception.CustomException;
 import com.example.community.global.exception.ErrorCode;
 import com.example.community.post.entity.Post;
 import com.example.community.post.repository.PostJpaRepository;
-import com.example.community.post.service.data.PostActivityDomain;
 import com.example.community.post.service.data.PostDomain;
-import com.example.community.post.service.data.PostPreviewDomain;
-import com.example.community.user.entity.User;
-import com.example.community.user.repository.UserJpaRepository;
+import com.example.common.user.entity.User;
+import com.example.common.user.repository.UserJpaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +17,6 @@ import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;

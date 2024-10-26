@@ -2,7 +2,7 @@ package com.example.community.comment_like.entity;
 
 import com.example.community.comment.entity.Comment;
 import com.example.community.comment_like.service.CommentLikeDomain;
-import com.example.community.user.entity.User;
+import com.example.common.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,10 +1,10 @@
 package com.example.community.post.entity;
 
 import com.example.community.comment.entity.Comment;
-import com.example.community.file.entity.File;
-import com.example.community.file.service.data.FileDomain;
+import com.example.common.file.entity.File;
+import com.example.common.file.service.data.FileDomain;
 import com.example.community.post.service.data.*;
-import com.example.community.user.entity.User;
+import com.example.common.user.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,7 +1,7 @@
 package com.example.community.scrap.service;
 
 import com.example.community.scrap.ScrapStatus;
-import com.example.community.user.service.data.UserDomain;
+import com.example.common.user.service.data.UserDomain;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

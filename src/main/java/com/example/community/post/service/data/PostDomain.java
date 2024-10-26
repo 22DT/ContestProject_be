@@ -1,6 +1,6 @@
 package com.example.community.post.service.data;
 
-import com.example.community.user.service.data.UserDomain;
+import com.example.common.user.service.data.UserDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

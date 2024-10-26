@@ -1,7 +1,7 @@
 package com.example.community.post.service;
 
 import com.example.community.comment.service.CommentDeleter;
-import com.example.community.file.service.db.FileDeleter;
+import com.example.common.file.service.db.FileDeleter;
 import com.example.community.post.service.data.PostDomain;
 import com.example.community.post_like.service.PostLikeDeleter;
 import com.example.community.scrap.service.ScrapDeleter;

@@ -1,7 +1,7 @@
 package com.example.community.scrap.entity;
 
 import com.example.community.post.entity.Post;
-import com.example.community.user.entity.User;
+import com.example.common.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 

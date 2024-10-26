@@ -1,14 +1,14 @@
 package com.example.community.post.service;
 
-import com.example.community.file.service.storage.FileManager;
-import com.example.community.file.service.data.FileDomain;
+import com.example.common.file.service.storage.FileManager;
+import com.example.common.file.service.data.FileDomain;
 import com.example.community.post.service.data.PostActivityDomain;
 import com.example.community.post.service.data.PostDomain;
 import com.example.community.post.service.data.PostPreviewDomain;
 import com.example.community.post.service.data.PostSortType;
 import com.example.community.post_like.service.PostLikeReader;
 import com.example.community.scrap.service.ScrapReader;
-import com.example.community.user.service.data.UserDomain;
+import com.example.common.user.service.data.UserDomain;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.*;

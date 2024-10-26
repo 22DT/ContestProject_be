@@ -1,8 +1,8 @@
 package com.example.community.schecule;
 
-import com.example.community.file.service.storage.FileManager;
-import com.example.community.file.service.FileRepository;
-import com.example.community.file.service.data.FileDomain;
+import com.example.common.file.service.storage.FileManager;
+import com.example.common.file.service.FileRepository;
+import com.example.common.file.service.data.FileDomain;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

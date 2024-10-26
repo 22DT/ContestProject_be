@@ -1,11 +1,10 @@
 package com.example.community.post.service.data;
 
-import com.example.community.file.service.data.FileDomain;
+import com.example.common.file.service.data.FileDomain;
 import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Getter
 @Builder

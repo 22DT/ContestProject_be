@@ -1,14 +1,12 @@
 package com.example.community.post_like.repository;
 
-import com.example.community.global.exception.CustomException;
-import com.example.community.global.exception.ErrorCode;
 import com.example.community.post.entity.Post;
 import com.example.community.post.repository.PostJpaRepository;
 import com.example.community.post_like.entity.PostLike;
 import com.example.community.post_like.service.PostLikeDomain;
 import com.example.community.post_like.service.PostLikeRepository;
-import com.example.community.user.entity.User;
-import com.example.community.user.repository.UserJpaRepository;
+import com.example.common.user.entity.User;
+import com.example.common.user.repository.UserJpaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;

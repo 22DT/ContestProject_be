@@ -1,12 +1,11 @@
 package com.example.community.post.service;
 
-import com.example.community.file.service.FileService;
-import com.example.community.file.service.data.FileDomain;
-import com.example.community.file.service.db.FileUpdater;
-import com.example.community.post.entity.Post;
+import com.example.common.file.service.FileService;
+import com.example.common.file.service.data.FileDomain;
+import com.example.common.file.service.db.FileUpdater;
 import com.example.community.post.service.data.*;
-import com.example.community.user.service.data.UserDomain;
-import com.example.community.user.service.UserValidator;
+import com.example.common.user.service.data.UserDomain;
+import com.example.common.user.service.UserValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

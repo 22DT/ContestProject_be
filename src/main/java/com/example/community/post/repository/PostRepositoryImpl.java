@@ -5,20 +5,16 @@ import com.example.community.global.exception.ErrorCode;
 import com.example.community.post.entity.Post;
 import com.example.community.post.service.PostRepository;
 import com.example.community.post.service.data.*;
-import com.example.community.user.entity.User;
-import com.example.community.user.repository.UserJpaRepository;
+import com.example.common.user.entity.User;
+import com.example.common.user.repository.UserJpaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
-import org.springframework.data.domain.SliceImpl;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
 
 
 @Repository

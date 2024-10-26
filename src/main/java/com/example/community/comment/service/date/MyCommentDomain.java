@@ -1,6 +1,6 @@
 package com.example.community.comment.service.date;
 
-import com.example.community.file.service.data.FileDomain;
+import com.example.common.file.service.data.FileDomain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package com.example.community.comment.service.date;
 
-import com.example.community.user.service.data.UserDomain;
-import com.example.community.user.service.data.UserInfo;
+import com.example.common.user.service.data.UserDomain;
+import com.example.common.user.service.data.UserInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package com.example.community.comment_like.service;
 
 import com.example.community.comment_like.CommentLikeStatus;
-import com.example.community.user.service.data.UserDomain;
+import com.example.common.user.service.data.UserDomain;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

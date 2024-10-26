@@ -1,6 +1,6 @@
 package com.example.community.post.dto.request;
 
-import com.example.community.file.service.data.FileDomain;
+import com.example.common.file.service.data.FileDomain;
 
 public record FileRequest(
         Long order,

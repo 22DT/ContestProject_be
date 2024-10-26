@@ -2,9 +2,9 @@ package com.example.community.comment.service;
 
 import com.example.community.comment.service.date.*;
 import com.example.community.comment_like.service.CommentLikeDomain;
-import com.example.community.file.service.storage.FileManager;
-import com.example.community.file.service.data.FileDomain;
-import com.example.community.user.service.data.UserDomain;
+import com.example.common.file.service.storage.FileManager;
+import com.example.common.file.service.data.FileDomain;
+import com.example.common.user.service.data.UserDomain;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
