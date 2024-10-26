@@ -1,23 +1,26 @@
 package com.example.community.user.service.data;
 
 import com.example.community.user.Grade;
+import com.example.community.user.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@Builder
 @AllArgsConstructor
+@Builder
 public class UserInfo {
-    private String nickname;
     private String email;
-    private String profileImage;
+    private String nickname;
+    private String snsProfileImageUrl;
 
-    private String field;
-    private String jobRole;
-
-    private String school;
-    private String department;
     private Grade grade;
+    private String school;
+    private String major;
+
+    private Role role;
+    private String userField;
+    private String duty;
+
     private boolean isRatingPublic;
 }

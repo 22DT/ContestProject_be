@@ -1,6 +1,7 @@
 package com.example.community.comment.service.date;
 
 import com.example.community.user.service.data.UserDomain;
+import com.example.community.user.service.data.UserInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,10 +21,14 @@ public class CommentInfo {
     private Long anonymousNumber;
 
     public void anonymize(){
+        UserInfo userInfo = UserInfo.builder()
+                .nickname("익명" + anonymousNumber)
+                .snsProfileImageUrl(null)
+                .build();
+
         writerDomain=UserDomain.builder()
                                 .id(writerDomain.getId()) // 흠..
-                                .nickname("익명"+anonymousNumber)
-                                .profileImage(null)
+                                .userInfo(userInfo)
                                 .build();
 
     }

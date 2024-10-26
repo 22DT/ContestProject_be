@@ -31,8 +31,8 @@ public record PostResponse(
         return new PostResponse(
                 domain.getId(),
                 domain.getWriter().getId(),
-                domain.getWriter().getNickname(),
-                domain.getWriter().getProfileImage(),
+                domain.getWriter().getUserInfo().getNickname(),
+                domain.getWriter().getUserInfo().getSnsProfileImageUrl(),
                 domain.isWriter(),
                 domain.getInfo().title(),
                 domain.getInfo().contestTitle(),

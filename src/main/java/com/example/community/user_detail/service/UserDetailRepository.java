@@ -5,11 +5,10 @@ import com.example.community.user_detail.UserDetailType;
 import java.util.List;
 
 public interface UserDetailRepository {
-    boolean support(UserDetailType type);
 
-    void saveAll(List<String> contestExperiences, Long userId);
-    List<String> findAllByUser(Long userId);
-    void deleteAll(List<String> contestExperiences,Long userId);
+    void saveAll(UserDetailType userDetailType, List<String> details, Long userId);
+    UserDetailInfo findAllByUser(Long userId);
+    void deleteAll(UserDetailType userDetailType, List<String> details, Long userId);
 
     void deleteAll(Long userId);
 }

@@ -1,5 +1,6 @@
 package com.example.community.user.dto.request;
 
+
 import com.example.community.user_detail.service.UserDetailInfo;
 
 import java.util.List;

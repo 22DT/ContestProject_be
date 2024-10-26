@@ -10,10 +10,10 @@ import com.example.community.refreshtoken.common.AccessAndRefreshToken;
 import com.example.community.refreshtoken.common.JwtTokenUtil;
 import com.example.community.refreshtoken.service.RefreshTokenRepository;
 import com.example.community.scrap.service.ScrapRepository;
-import com.example.community.user_detail.service.UserDetailInfo;
 import com.example.community.user.service.data.UserDomain;
 import com.example.community.user.service.data.UserInfo;
 import com.example.community.user_detail.UserDetailType;
+import com.example.community.user_detail.service.UserDetailInfo;
 import com.example.community.user_detail.service.UserDetailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -88,23 +88,17 @@ public class UserService {
     }
 
 
-    public void registerUserDetails(UserDomain user, UserDetailInfo userDetailInfo) {
-        userDetailService.update(UserDetailType.CONTEST_EXPERIENCE, userDetailInfo.getContestExperiences(), user.getId());
-        userDetailService.update(UserDetailType.AWARD, userDetailInfo.getAwardUrls(), user.getId());
-        userDetailService.update(UserDetailType.CERTIFICATION, userDetailInfo.getCertificates(), user.getId());
-        userDetailService.update(UserDetailType.STACK, userDetailInfo.getStacks(), user.getId());
-
+    public void registerUserDetails(UserDomain user, UserDetailInfo detailsToUpdate) {
+       userDetailService.update(detailsToUpdate, user);
     }
 
-    public void update(UserDomain user, UserInfo userInfo,UserDetailInfo userDetailInfo) {
+    public void update(UserDomain user, UserInfo userInfo,UserDetailInfo detailsToUpdate) {
+        UserDetailInfo userDetail = userDetailService.getUserDetail(user);
         // 기본 정보 업데이트
         userUpdater.update(user, userInfo);
 
         // 세부 정보 업데이트
-        userDetailService.update(UserDetailType.CONTEST_EXPERIENCE, userDetailInfo.getContestExperiences(), user.getId());
-        userDetailService.update(UserDetailType.AWARD, userDetailInfo.getAwardUrls(), user.getId());
-        userDetailService.update(UserDetailType.CERTIFICATION, userDetailInfo.getCertificates(), user.getId());
-        userDetailService.update(UserDetailType.STACK, userDetailInfo.getStacks(), user.getId());
+        userDetailService.update(detailsToUpdate, user);
     }
 
 
@@ -124,10 +118,9 @@ public class UserService {
         commentLikeRepository.deleteAllByUserId(user.getId());
         scrapRepository.deleteAllByUserId(user.getId());
         // 세부 정보 삭제
-        userDetailService.update(UserDetailType.CONTEST_EXPERIENCE, null, user.getId());
-        userDetailService.update(UserDetailType.AWARD, null, user.getId());
-        userDetailService.update(UserDetailType.CERTIFICATION, null, user.getId());
-        userDetailService.update(UserDetailType.STACK, null, user.getId());
+
+
+        userDetailService.update(null, user);
 
     }
 }

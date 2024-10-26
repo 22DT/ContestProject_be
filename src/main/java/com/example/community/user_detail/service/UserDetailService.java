@@ -1,83 +1,74 @@
 package com.example.community.user_detail.service;
 
-import com.example.community.user.entity.User;
 import com.example.community.user.service.data.UserDomain;
 import com.example.community.user_detail.UserDetailType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
+@Transactional
 public class UserDetailService {
-    private final List<UserDetailRepository> userDetailRepositoryList;
+    private final UserDetailRepository userDetailRepository;
 
     public UserDetailInfo getUserDetail(UserDomain user) {
-        Map<UserDetailType, List<String>> map = new ConcurrentHashMap<>();
-        for (UserDetailType type : UserDetailType.values()) {
-            map.put(type, new ArrayList<>());
-        }
+        return userDetailRepository.findAllByUser(user.getId());
 
-        for (UserDetailType type : UserDetailType.values()) {
-            UserDetailRepository userDetailRepository = getUserDetailRepository(type);
-
-            if (userDetailRepository == null) {
-                log.info("userDetailRepository is null");
-                return null;
-            }
-
-            List<String> currentDetails = userDetailRepository.findAllByUser(user.getId());
-            map.get(type).addAll(currentDetails);
-
-        }
-
-
-        return UserDetailInfo.builder()
-                .contestExperiences(map.get(UserDetailType.CONTEST_EXPERIENCE))
-                .awardUrls(map.get(UserDetailType.AWARD))
-                .certificates(map.get(UserDetailType.CERTIFICATION))
-                .stacks(map.get(UserDetailType.STACK))
-                .build();
     }
 
+    public void update(UserDetailInfo detailsToUpdate, UserDomain user ){
+        UserDetailInfo currentDetails = getUserDetail(user);
 
-    public void update(UserDetailType detailType, List<String> updateRequest, Long userId){
-        UserDetailRepository userDetailRepository = getUserDetailRepository(detailType);
+        update(UserDetailType.CONTEST_EXPERIENCE, currentDetails.getContestExperiences(), detailsToUpdate.getContestExperiences(), user.getId());
+        update(UserDetailType.AWARD, currentDetails.getAwardUrls(), detailsToUpdate.getAwardUrls(), user.getId());
+        update(UserDetailType.CERTIFICATION, currentDetails.getCertificates(), detailsToUpdate.getCertificates(), user.getId());
+        update(UserDetailType.STACK, currentDetails.getStacks(), detailsToUpdate.getStacks(), user.getId());
 
-        if(userDetailRepository == null){
-            log.info("userDetailRepository is null");
-            return;
-        }
+    }
 
-        List<String> currentDetails = userDetailRepository.findAllByUser(userId);
+    public void update(UserDetailType detailType, List<String> currentDetails, List<String> updateRequest, Long userId){
+        log.info("[UserDetailService][update]");
+        log.info("currentDetails = {}" ,currentDetails);
 
         if(updateRequest == null){updateRequest = new ArrayList<>();}
+
         // 지울 거.
         List<String> toDelete=new ArrayList<>(currentDetails);
         toDelete.removeAll(updateRequest);
-        if(!toDelete.isEmpty()) {userDetailRepository.deleteAll(toDelete, userId);}
+        log.info("toDelete={}",toDelete);
+        if(!toDelete.isEmpty()) {userDetailRepository.deleteAll(detailType,toDelete, userId);}
 
         // 추가할 거.
         List<String> toAdd=new ArrayList<>(updateRequest);
         toAdd.removeAll(currentDetails);
-        if(!toAdd.isEmpty()){userDetailRepository.saveAll(toAdd, userId);}
+        log.info("toAdd={}",toAdd);
+        if(!toAdd.isEmpty()){userDetailRepository.saveAll(detailType, toAdd, userId);}
     }
 
 
-    private UserDetailRepository getUserDetailRepository(UserDetailType detailType){
-        for (UserDetailRepository userDetailRepository : userDetailRepositoryList) {
-            if(userDetailRepository.support(detailType)){
-                return userDetailRepository;
-            }
+
+    private List<String> getDetails(UserDetailType detailType, UserDetailInfo currentAllDetails){
+
+        if(detailType==UserDetailType.AWARD){
+            return currentAllDetails.getAwardUrls();
         }
-        return null;
-    }
+        else if(detailType==UserDetailType.CERTIFICATION){
+            return currentAllDetails.getCertificates();
+        }
+        else if(detailType==UserDetailType.STACK){
+            return currentAllDetails.getStacks();
+        }
+        else if(detailType==UserDetailType.CONTEST_EXPERIENCE){
+            return currentAllDetails.getContestExperiences();
+        }
 
+        return new ArrayList<>();
+    }
 
 }

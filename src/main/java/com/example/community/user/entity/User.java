@@ -2,6 +2,7 @@ package com.example.community.user.entity;
 
 import com.example.community.user.Grade;
 import com.example.community.user.Role;
+import com.example.community.user.SuspensionStatus;
 import com.example.community.user.service.data.UserDomain;
 import com.example.community.user.service.data.UserInfo;
 import jakarta.persistence.*;
@@ -58,26 +59,29 @@ public class User {
 
 
     public UserDomain toDomain(){
+        UserInfo userInfo = UserInfo.builder()
+                .email(email)
+                .nickname(nickname)
+                .snsProfileImageUrl(snsProfileImageUrl)
+                .grade(grade)
+                .school(school)
+                .major(major)
+                .role(role)
+                .userField(userField)
+                .duty(duty)
+                .build();
+
         return UserDomain.builder()
                 .id(id)
-                .nickname(nickname)
-                .profileImage(snsProfileImageUrl)
-                .email(email)
-                .school(school)
-                .department(major)
-                .grade(grade)
-                .userFields(userField)
-                .jobRole(duty)
-                .rating(rating)
-                .teamMemberCode(teamMemberCode)
+                .userInfo(userInfo)
                 .build();
     }
 
     public static User from(UserDomain domain){
         return User.builder()
                 .id(domain.getId())
-                .nickname(domain.getNickname())
-                .snsProfileImageUrl(domain.getProfileImage())
+                .nickname(domain.getUserInfo().getNickname())
+                .snsProfileImageUrl(domain.getUserInfo().getSnsProfileImageUrl())
                 .build();
     }
 
@@ -93,11 +97,11 @@ public class User {
 
     public void update(UserInfo userInfo){
         nickname=userInfo.getNickname();
-        snsProfileImageUrl =userInfo.getProfileImage();
-        major =userInfo.getDepartment();
+        snsProfileImageUrl =userInfo.getSnsProfileImageUrl();
+        major =userInfo.getMajor();
         grade=userInfo.getGrade();
-        userField =userInfo.getField();
-        duty =userInfo.getJobRole();
+        userField =userInfo.getUserField();
+        duty =userInfo.getDuty();
     }
 
 }

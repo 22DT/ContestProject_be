@@ -39,8 +39,8 @@ public record ParentCommentResponse(
         return new ParentCommentResponse(
                 domain.getId(),
                 domain.getInfo().getWriterDomain().getId(),
-                domain.getInfo().getWriterDomain().getNickname(),
-                domain.getInfo().getWriterDomain().getProfileImage(),
+                domain.getInfo().getWriterDomain().getUserInfo().getNickname(),
+                domain.getInfo().getWriterDomain().getUserInfo().getSnsProfileImageUrl(),
                 domain.getInfo().getContent(),
                 domain.getCreateAt(),
                 domain.isDeleted(),

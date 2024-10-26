@@ -6,13 +6,13 @@ import com.example.community.user.service.data.UserInfo;
 public record SignUpRequest(
         String nickname,
         String email,
-        String profileImage,
+        String snsProfileImageUrl,
 
-        String field,
-        String jobRole,
+        String userField,
+        String duty,
 
         String school,
-        String department,
+        String major,
         Grade grade
 
 ) {
@@ -21,11 +21,11 @@ public record SignUpRequest(
         return UserInfo.builder()
                 .nickname(nickname)
                 .email(email)
-                .profileImage(profileImage)
-                .field(field)
-                .jobRole(jobRole)
+                .snsProfileImageUrl(snsProfileImageUrl)
+                .userField(userField)
+                .duty(duty)
                 .school(school)
-                .department(department)
+                .major(major)
                 .grade(grade)
                 .build();
     }

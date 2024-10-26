@@ -2,14 +2,14 @@ package com.example.community.user.api;
 
 import com.example.community.post.dto.response.PostPreviewResponse;
 import com.example.community.refreshtoken.common.AccessAndRefreshToken;
-import com.example.community.user.dto.response.MyCommentResponse;
 import com.example.community.user.dto.request.SignUpRequest;
 import com.example.community.user.dto.request.UserDetailRequest;
 import com.example.community.user.dto.request.UserUpdateRequest;
-import com.example.community.user_detail.service.UserDetailInfo;
+import com.example.community.user.dto.response.MyCommentResponse;
+import com.example.community.user.service.UserService;
 import com.example.community.user.service.data.UserDomain;
 import com.example.community.user.service.data.UserInfo;
-import com.example.community.user.service.UserService;
+import com.example.community.user_detail.service.UserDetailInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Slice;

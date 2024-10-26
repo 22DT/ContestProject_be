@@ -30,10 +30,10 @@ public record UserUpdateRequest(
     public UserInfo toUserInfo(){
         return UserInfo.builder()
                 .nickname(nickname)
-                .profileImage(profileImage)
-                .field(field)
-                .jobRole(jobRole)
-                .department(department)
+                .snsProfileImageUrl(profileImage)
+                .userField(field)
+                .duty(jobRole)
+                .major(department)
                 .grade(grade)
                 .isRatingPublic(isRatingPublic)
                 .build();
