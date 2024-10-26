@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class PostController {
     private final PostService postService;
-
+        // commit test!
     @PostMapping("/api/community/posts/new/{login-id}")
     public ResponseEntity<Map> writer(@PathVariable("login-id") Long loginUserId,
                                       @RequestBody PostRequest request){
